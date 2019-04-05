@@ -1,0 +1,22 @@
+{
+	"name": "homebrew",
+	"version": "1.0.0",
+	"description": "A project for my homebrews.",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js",
+		"server": "nodemon server.js"
+	},
+	"keywords": [],
+	"author": "Jason Bowers",
+	"license": "ISC",
+	"dependencies": {
+		"body-parser": "^1.18.3",
+		"concurrently": "^4.1.0",
+		"express": "^4.16.4",
+		"mongoose": "^5.4.21"
+	},
+	"devDependencies": {
+		"nodemon": "^1.18.10"
+	}
+}
