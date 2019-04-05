@@ -9,8 +9,11 @@ const Recipe = require("../../models/Recipe");
 //@access Public
 router.get("/", (req, res) => {
   Recipe.find()
+    .populate({ path: "hop.hopName", model: Hop })
     .sort({ date: -1 })
-    .then(recipes => res.json(recipes));
+    .then(function(recipes) {
+      res.json(recipes);
+    });
 });
 
 //@route  POST api/recipes
@@ -18,7 +21,8 @@ router.get("/", (req, res) => {
 //@access Public
 router.post("/", (req, res) => {
   const newRecipe = new Recipe({
-    name: req.body.name
+    name: req.body.name,
+    hop: req.body.hop
   });
 
   newRecipe.save().then(recipe => res.json(recipe));
